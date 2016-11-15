@@ -1,0 +1,86 @@
+Download Symfony:
+php -r "file_put_contents('symfony', file_get_contents('https://symfony.com/installer'));" 
+
+Create project:
+php symfony new [project name]
+
+configure cacert.pem:
+curl.cainfo = "D:\wamp\bin\php\php5.5.12\extras\ssl\cacert.pem"
+------------------
+FOS Bundle install:
+composer require friendsofsymfony/user-bundle "~2.0@dev"
+
+Create DB:
+php bin/console doctrine:database:create
+
+Update DB schema:
+php bin/console doctrine:schema:update --force
+------------------
+Sonata Admin bundle install:
+composer require sonata-project/admin-bundle
+
+SonataDoctrineORMAdminBundle:
+composer require sonata-project/doctrine-orm-admin-bundle
+
+Clear Cache:
+php bin/console cache:clear
+
+Install Assets:
+php bin/console assets:install
+------------------
+Install VichUploaderBundle:
+composer require vich/uploader-bundle
+
+------------------
+php bin/console help doctrine:database:create
+php bin/console doctrine:database:create
+php bin/console doctrine:generate:entity
+php bin/console doctrine:generate:entities AppBundle:User
+php bin/console doctrine:schema:update --force
+
+------------------
+Show All routes:
+php bin/console debug:router
+------------------
+
+------------------
+php bin/console list doctrine
+
+Symfony version 2.3.42 - app/dev/debug
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  --help           -h Display this help message
+  --quiet          -q Do not output any message
+  --verbose        -v|vv|vvv Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+  --version        -V Display this application version
+  --ansi              Force ANSI output
+  --no-ansi           Disable ANSI output
+  --no-interaction -n Do not ask any interactive question
+  --shell          -s Launch the shell.
+  --process-isolation    Launch commands from shell as a separate process.
+  --env            -e The Environment name.
+  --no-debug          Switches off debug mode.
+
+Available commands for the "doctrine" namespace:
+  doctrine:cache:clear-metadata         Clears all metadata cache for an entity manager
+  doctrine:cache:clear-query            Clears all query cache for an entity manager
+  doctrine:cache:clear-result           Clears result cache for an entity manager
+  doctrine:database:create              Creates the configured databases
+  doctrine:database:drop                Drops the configured databases
+  doctrine:ensure-production-settings   Verify that Doctrine is properly configured for a production environment.
+  doctrine:generate:crud                Generates a CRUD based on a Doctrine entity
+  doctrine:generate:entities            Generates entity classes and method stubs from your mapping information
+  doctrine:generate:entity              Generates a new Doctrine entity inside a bundle
+  doctrine:generate:form                Generates a form type class based on a Doctrine entity
+  doctrine:mapping:convert              Convert mapping information between supported formats.
+  doctrine:mapping:import               Imports mapping information from an existing database
+  doctrine:mapping:info                 Shows basic information about all mapped entities
+  doctrine:query:dql                    Executes arbitrary DQL directly from the command line.
+  doctrine:query:sql                    Executes arbitrary SQL directly from the command line.
+  doctrine:schema:create                Executes (or dumps) the SQL needed to generate the database schema
+  doctrine:schema:drop                  Executes (or dumps) the SQL needed to drop the current database schema
+  doctrine:schema:update                Executes (or dumps) the SQL needed to update the database schema to match the current mapping metadata
+  doctrine:schema:validate              Validates the doctrine mapping files
